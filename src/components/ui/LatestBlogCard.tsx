@@ -3,12 +3,13 @@ import Link from "next/link";
 import { AiFillLike } from "react-icons/ai";
 import { FaCalendar } from "react-icons/fa";
 
-const LatestBlogCard = ({ blog }) => {
+const LatestBlogCard = ({ blog }: { blog: Blog }) => {
+  const { blog_image, publish_date } = blog
   return (
     <div key={blog.id} className="card w-full bg-base-100 shadow-xl">
       <figure>
         <Image
-          src={blog.blog_image}
+          src={blog_image}
           width={600}
           height={100}
           alt="blog image"
@@ -18,7 +19,7 @@ const LatestBlogCard = ({ blog }) => {
       <div className="card-body">
         <p className="flex items-center justify-center text-accent bg-cyan-100 w-44 px-2 py-1 rounded-full">
           <FaCalendar className="mr-2" />
-          {blog.publish_date}
+          {publish_date}
         </p>
         <h2 className="card-title">{blog.title}</h2>
         <p className="text-gray-500">
